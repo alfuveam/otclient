@@ -3,13 +3,12 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir>$(ProjectDir)../</OutDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <ObjectFileName>$(IntDir)\obj_r\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName>$(IntDir)\obj_r\</ObjectFileName>
     </ClCompile>
     <Link>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
