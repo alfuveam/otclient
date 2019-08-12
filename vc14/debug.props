@@ -12,6 +12,7 @@
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <ObjectFileName>$(IntDir)\obj_d\</ObjectFileName>
+      <AdditionalOptions>/bigobj%(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>      
     </Link>
