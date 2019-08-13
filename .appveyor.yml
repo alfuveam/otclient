@@ -24,16 +24,16 @@ install:
   - cmd : vcpkg install boost-system:x64-windows
   - cmd : vcpkg install boost-variant:x64-windows
   - cmd : vcpkg install boost-lockfree:x64-windows
-  - cmd : vcpkg install luajit:x64-windows
-  - cmd : vcpkg install glew:x64-windows
   - cmd : vcpkg install boost-filesystem:x64-windows
   - cmd : vcpkg install boost-uuid:x64-windows
+  - cmd : vcpkg install luajit:x64-windows
+  - cmd : vcpkg install glew:x64-windows
   - cmd : vcpkg install physfs:x64-windows
+  - cmd : vcpkg install opengl:x64-windows
   - cmd : vcpkg install openal-soft:x64-windows
   - cmd : vcpkg install libogg:x64-windows
   - cmd : vcpkg install libvorbis:x64-windows
   - cmd : vcpkg install zlib:x64-windows
-  - cmd : vcpkg install opengl:x64-windows
 
 build:
   parallel: true

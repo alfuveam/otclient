@@ -32,6 +32,12 @@
 
 #define LUA_LIB
 
+#if defined( _MSC_VER)
+  #include <luajit/lua.hpp>
+#else
+  #include <lua.hpp>
+#endif
+
 /* ----- adapted from lua-5.2.0 luaconf.h: ----- */
 
 /*

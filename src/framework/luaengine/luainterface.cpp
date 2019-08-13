@@ -25,6 +25,12 @@
 
 #include <framework/core/resourcemanager.h>
 
+#if defined( _MSC_VER)
+  #include <luajit/lua.hpp>
+#else
+  #include <lua.hpp>
+#endif
+
 #include "lbitlib.h"
 
 LuaInterface g_lua;
