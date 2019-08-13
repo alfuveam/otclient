@@ -4,6 +4,7 @@
   <PropertyGroup Label="UserMacros">
     <PREPROCESSOR_DEFS>
         _CRT_SECURE_NO_WARNINGS;
+        _WIN32_WINNT=0x0501;
         BOT_PROTECTION;
         CRASH_HANDLER;
         FW_GRAPHICS;
@@ -14,7 +15,15 @@
         BUILD_COMMIT="devel";
         BUILD_REVISION="0";
         VERSION="0.6.6";
-    </PREPROCESSOR_DEFS>    
+    </PREPROCESSOR_DEFS>
+    <OTCLIENT_LIBDEPS_D>
+        dbghelp.lib;
+        kernel32.lib; 
+        user32.lib;
+        shell32.lib;
+        gdi32.lib;
+        advapi32.lib;
+	</OTCLIENT_LIBDEPS_D>    
   </PropertyGroup>
   <PropertyGroup>
     <LinkIncremental>false</LinkIncremental>
@@ -38,6 +47,9 @@
     <BuildMacro Include="PREPROCESSOR_DEFS">
       <Value>$(PREPROCESSOR_DEFS)</Value>
       <EnvironmentVariable>true</EnvironmentVariable>
-    </BuildMacro>    
+    </BuildMacro>
+    <BuildMacro Include="OTCLIENT_LIBDEPS_D">
+      <Value>$(OTCLIENT_LIBDEPS_D)</Value>
+    </BuildMacro>
   </ItemGroup>
 </Project>
