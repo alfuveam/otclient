@@ -23,6 +23,8 @@
 #ifndef LBITLIB_520_BACKPORT4_H
 #define LBITLIB_520_BACKPORT4_H
 
+#include <lua.hpp>
+
 struct lua_State;
 
 int luaopen_bit32 (lua_State *L);

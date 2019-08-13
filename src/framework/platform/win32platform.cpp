@@ -20,7 +20,7 @@
  * THE SOFTWARE.
  */
 
-#ifdef WIN32
+#ifdef _WIN32
 
 #include "platform.h"
 #include <winsock2.h>

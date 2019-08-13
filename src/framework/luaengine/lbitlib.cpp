@@ -31,7 +31,6 @@
  */
 
 #define LUA_LIB
-#include <lua.hpp>
 
 /* ----- adapted from lua-5.2.0 luaconf.h: ----- */
 

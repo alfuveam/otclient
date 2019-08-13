@@ -71,7 +71,7 @@ bool ResourceManager::setupUserWriteDir(const std::string& appWriteDirName)
 {
     std::string userDir = getUserDir();
     std::string dirName;
-#ifndef WIN32
+#ifndef _WIN32
     dirName = stdext::format(".%s", appWriteDirName);
 #else
     dirName = appWriteDirName;

@@ -23,7 +23,7 @@
 #ifndef STDEXT_COMPILER_H
 #define STDEXT_COMPILER_H
 
-#ifdef WIN32
+#ifdef _WIN32
 #include <winsock2.h>
 #endif
 

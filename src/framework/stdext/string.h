@@ -56,7 +56,7 @@ bool is_valid_utf8(const std::string& src);
 std::string utf8_to_latin1(const std::string& src);
 std::string latin1_to_utf8(const std::string& src);
 
-#ifdef WIN32
+#ifdef _WIN32
 std::wstring utf8_to_utf16(const std::string& src);
 std::string utf16_to_utf8(const std::wstring& src);
 std::string utf16_to_latin1(const std::wstring& src);

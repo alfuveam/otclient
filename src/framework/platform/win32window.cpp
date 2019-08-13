@@ -20,7 +20,7 @@
  * THE SOFTWARE.
  */
 
-#ifdef WIN32
+#ifdef _WIN32
 
 #include "win32window.h"
 #include <framework/graphics/image.h>
@@ -971,9 +971,9 @@ std::string WIN32Window::getClipboardText()
 std::string WIN32Window::getPlatformType()
 {
 #ifndef OPENGL_ES
-    return "WIN32-WGL";
+    return "_WIN32-WGL";
 #else
-    return "WIN32-EGL";
+    return "_WIN32-EGL";
 #endif
 }
 

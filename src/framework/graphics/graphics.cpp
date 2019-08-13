@@ -31,7 +31,7 @@
 #include "ogl/painterogl2.h"
 #endif
 
-#if defined(WIN32) && defined(DIRECTX)
+#if defined(_WIN32) && defined(DIRECTX)
 #include "dx/painterdx9.h"
 #endif
 
@@ -54,7 +54,7 @@ void Graphics::init()
     g_logger.info(stdext::format("GPU %s", glGetString(GL_RENDERER)));
     g_logger.info(stdext::format("OpenGL %s", glGetString(GL_VERSION)));
 
-#if defined(WIN32) && defined(DIRECTX)
+#if defined(_WIN32) && defined(DIRECTX)
     g_painterDX9 = new PainterDX9;
 #endif
 
@@ -165,7 +165,7 @@ bool Graphics::parseOption(const std::string& option)
 
 bool Graphics::isPainterEngineAvailable(Graphics::PainterEngine painterEngine)
 {
-#if defined(WIN32) && defined(DIRECTX)
+#if defined(_WIN32) && defined(DIRECTX)
     if(g_painterDX9 && painterEngine == Painter_DirectX9)
         return true;
 #endif
