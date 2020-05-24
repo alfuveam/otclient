@@ -417,6 +417,7 @@ namespace Otc
         GameIngameStoreHighlights = 74,
         GameIngameStoreServiceType = 75,
         GameAdditionalSkills = 76,
+        GameProtocolSequenceNumber = 77,
 
         LastGameFeature = 101
     };

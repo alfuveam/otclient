@@ -1501,7 +1501,7 @@ void Game::setProtocolVersion(int version)
     if(isOnline())
         stdext::throw_exception("Unable to change protocol version while online");
 
-    if(version != 0 && (version < 740 || version > 1099))
+    if(version != 0 && (version < 740 || version > 1111))
         stdext::throw_exception(stdext::format("Protocol version %d not supported", version));
 
     m_protocolVersion = version;
@@ -1519,7 +1519,7 @@ void Game::setClientVersion(int version)
     if(isOnline())
         stdext::throw_exception("Unable to change client version while online");
 
-    if(version != 0 && (version < 740 || version > 1099))
+    if(version != 0 && (version < 740 || version > 1111))
         stdext::throw_exception(stdext::format("Client version %d not supported", version));
 
     m_features.reset();
@@ -1686,6 +1686,11 @@ void Game::setClientVersion(int version)
     if(version >= 1094) {
         enableFeature(Otc::GameAdditionalSkills);
     }
+
+    if(version >= 1111) {
+        enableFeature(Otc::GameProtocolSequenceNumber);
+        disableFeature(Otc::GameProtocolChecksum);
+    }    
 
     m_clientVersion = version;
 

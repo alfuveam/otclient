@@ -64,6 +64,7 @@ protected:
     uint8* getDataBuffer() { return m_buffer + MAX_HEADER_SIZE; }
 
     void writeChecksum();
+    void writeSequenceNumber(uint32& currentSequenceNumber);
     void writeMessageSize();
 
     friend class Protocol;

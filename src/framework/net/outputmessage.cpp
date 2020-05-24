@@ -118,6 +118,14 @@ void OutputMessage::writeChecksum()
     m_messageSize += 4;
 }
 
+void OutputMessage::writeSequenceNumber(uint32& currentSequenceNumber)
+{
+    assert(m_headerPos - 4 >= 0);
+    m_headerPos -= 4;
+    stdext::writeULE32(m_buffer + m_headerPos, currentSequenceNumber);
+    m_messageSize += 4;
+}
+
 void OutputMessage::writeMessageSize()
 {
     assert(m_headerPos - 2 >= 0);

@@ -46,6 +46,9 @@ void ProtocolGame::onConnect()
 
     if(g_game.getFeature(Otc::GameProtocolChecksum))
         enableChecksum();
+        
+    if(g_game.getFeature(Otc::GameProtocolSequenceNumber))
+        enableSequenceNumber();
 
     if(!g_game.getFeature(Otc::GameChallengeOnLogin))
         sendLoginPacket(0, 0);

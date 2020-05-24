@@ -116,6 +116,9 @@ void ProtocolGame::sendLoginPacket(uint challengeTimestamp, uint8 challengeRando
     if(g_game.getFeature(Otc::GameProtocolChecksum))
         enableChecksum();
 
+    if(g_game.getFeature(Otc::GameProtocolSequenceNumber))
+        enableSequenceNumber();
+        
     send(msg);
 
     if(g_game.getFeature(Otc::GameLoginPacketEncryption))

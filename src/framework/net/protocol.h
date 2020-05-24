@@ -52,6 +52,7 @@ public:
     std::vector<uint32> getXteaKey();
     void enableXteaEncryption() { m_xteaEncryptionEnabled = true; }
 
+    void enableSequenceNumber() { m_sequenceNumber = true; }
     void enableChecksum() { m_checksumEnabled = true; }
 
     virtual void send(const OutputMessagePtr& outputMessage);
@@ -65,7 +66,7 @@ protected:
     virtual void onError(const boost::system::error_code& err);
 
     uint32 m_xteaKey[4];
-
+    
 private:
     void internalRecvHeader(uint8* buffer, uint16 size);
     void internalRecvData(uint8* buffer, uint16 size);
@@ -75,6 +76,8 @@ private:
 
     bool m_checksumEnabled;
     bool m_xteaEncryptionEnabled;
+    bool m_sequenceNumber;
+    uint32 m_currentSequenceNumber = 0;
     ConnectionPtr m_connection;
     InputMessagePtr m_inputMessage;
 };

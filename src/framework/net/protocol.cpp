@@ -29,6 +29,7 @@ Protocol::Protocol()
 {
     m_xteaEncryptionEnabled = false;
     m_checksumEnabled = false;
+    m_sequenceNumber = false;
     m_inputMessage = InputMessagePtr(new InputMessage);
 }
 
@@ -79,6 +80,10 @@ void Protocol::send(const OutputMessagePtr& outputMessage)
     if(m_checksumEnabled)
         outputMessage->writeChecksum();
 
+    // write sequence number
+    if(m_sequenceNumber)
+        outputMessage->writeSequenceNumber(m_currentSequenceNumber);
+
     // write message size
     outputMessage->writeMessageSize();
 
@@ -98,6 +103,8 @@ void Protocol::recv()
     int headerSize = 2; // 2 bytes for message size
     if(m_checksumEnabled)
         headerSize += 4; // 4 bytes for checksum
+    if(m_sequenceNumber)
+        headerSize += 4; // 4 bytes for sequence number
     if(m_xteaEncryptionEnabled)
         headerSize += 2; // 2 bytes for XTEA encrypted message size
     m_inputMessage->setHeaderSize(headerSize);
@@ -128,9 +135,14 @@ void Protocol::internalRecvData(uint8* buffer, uint16 size)
 
     m_inputMessage->fillBuffer(buffer, size);
 
-    if(m_checksumEnabled && !m_inputMessage->readChecksum()) {
-        g_logger.traceError("got a network message with invalid checksum");
-        return;
+    if(m_sequenceNumber) {
+        m_currentSequenceNumber = m_inputMessage->getU32();
+    }
+    else if(m_checksumEnabled) {
+        if(!m_inputMessage->readChecksum()){
+            g_logger.traceError("got a network message with invalid checksum");
+            return;
+        }
     }
 
     if(m_xteaEncryptionEnabled) {

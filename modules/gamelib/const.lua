@@ -153,6 +153,7 @@ GameIngameStore = 73
 GameIngameStoreHighlights = 74
 GameIngameStoreServiceType = 75
 GameAdditionalSkills = 76
+GameProtocolSequenceNumber = 77
 
 TextColors = {
   red       = '#f55e5e', --'#c83200'
