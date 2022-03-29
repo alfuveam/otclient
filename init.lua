@@ -53,3 +53,5 @@ local script = '/' .. g_app.getCompactName() .. 'rc.lua'
 if g_resources.fileExists(script) then
   dofile(script)
 end
+
+print(os.time())
